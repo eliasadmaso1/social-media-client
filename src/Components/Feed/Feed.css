@@ -1,0 +1,8 @@
+.feedContainer{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.feedWrapper{
+    padding: 20px;
+}

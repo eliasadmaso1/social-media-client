@@ -1,0 +1,117 @@
+.topBarContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 50px;
+    width: 100%;
+    background-color: #1877f2;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+
+}
+
+.logo{
+    font-weight: bold;
+    color: white;
+    font-size: 20px;
+}
+
+.topBarLeft{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.topBarCenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.searchBar{
+    width: 90%;
+    height: 30px;
+    background-color: white;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+
+}
+
+.searchIcon{
+    font-size: 20px  !important;
+    margin-left: 10px;
+}
+
+.searchInput{
+    border: none;
+    width: 70%;
+}
+.searchInput:focus{
+    outline: none;
+}
+
+.topBarRight{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+
+}
+
+.topBarLink{
+    margin: 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.topBarIcons{
+    display: flex;
+}
+
+.topbarIconItem{
+    margin-right: 15px;
+    cursor: pointer;
+    position: relative;
+}
+
+.topbarIconBadge{
+    width: 15px;
+    height: 15px;
+    background-color: red;
+    border-radius: 50%;
+    color: white;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+.topBarImage{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+@media only screen and (min-width: 414px) and (max-width: 767px),
+  (min-width: 412px) and (max-width: 767px),
+  (min-width: 390px) and (max-width: 767px),
+  (min-width: 428px) and (max-width: 767px),
+  (min-width: 384px) and (max-width: 767px),
+  (min-width: 360px) and (max-width: 767px) {
+      .topBarContainer{
+          grid-template-columns: 2fr 2fr 0.5fr;
+      }
+      .topBarLinks{
+          visibility: hidden;
+          width: 0;
+      }
+      
+  }

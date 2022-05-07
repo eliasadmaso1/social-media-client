@@ -1,0 +1,23 @@
+.homeBody{
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+}
+
+
+.homeContainer{
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr;
+    width: 100%;
+}
+
+@media only screen and (min-width: 414px) and (max-width: 767px),
+  (min-width: 412px) and (max-width: 767px),
+  (min-width: 390px) and (max-width: 767px),
+  (min-width: 428px) and (max-width: 767px),
+  (min-width: 384px) and (max-width: 767px),
+  (min-width: 360px) and (max-width: 767px) {
+      .homeContainer{
+          grid-template-columns: 1fr;
+      }
+  }
