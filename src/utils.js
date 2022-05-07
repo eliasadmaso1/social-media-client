@@ -1,0 +1,1 @@
+export const server_url = "https://elias-media.herokuapp.com/" || "http://localhost:6000/"

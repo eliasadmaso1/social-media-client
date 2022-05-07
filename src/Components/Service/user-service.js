@@ -1,4 +1,5 @@
 import axios from "axios";
+import {server_url} from '../../utils';
 
 const updateUser = async (
   userId,
@@ -11,7 +12,7 @@ const updateUser = async (
   dispatch
 ) => {
   try {
-    const res = await axios.put("http://localhost:8800/users/update", {
+    const res = await axios.put(`${server_url}update`, {
       userId,
       username,
       from,

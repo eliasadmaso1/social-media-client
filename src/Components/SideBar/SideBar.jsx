@@ -13,6 +13,8 @@ import Friends from "../Friends/Friends";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Context/Auth-context";
+import {server_url} from '../../utils';
+
 
 function SideBar() {
   const [users, setUsers] = useState([]);
@@ -20,7 +22,7 @@ function SideBar() {
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const res = await axios.get("http://localhost:8800/users/all");
+      const res = await axios.get(`${server_url}users/all`);
       const result = res.data.filter((item) => {
         return item._id !== user._id;
       });

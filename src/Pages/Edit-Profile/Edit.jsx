@@ -6,6 +6,7 @@ import { AuthContext } from "../../Components/Context/Auth-context";
 import TopBar from "../../Components/TopBar/TopBar";
 import PermMediaOutlinedIcon from "@mui/icons-material/PermMediaOutlined";
 import axios from 'axios';
+import {server_url} from '../../utils';
 
 function Edit() {
   const { user, dispatch } = useContext(AuthContext);
@@ -32,13 +33,13 @@ function Edit() {
         cover.append("file", coverImg);
         cover.append("name", coverImgName);
         try {
-          await axios.post("http://localhost:8800/upload", profile);
-          await axios.post("http://localhost:8800/upload", cover);
+          await axios.post(`${server_url}upload`, profile);
+          await axios.post(`${server_url}upload`, cover);
         } catch (error) {
           console.log(error);
         }
-        const pName = `http://localhost:8800/images/${profileImgName}`;
-        const cName = `http://localhost:8800/images/${coverImgName}`;
+        const pName = `${server_url}images/${profileImgName}`;
+        const cName = `${server_url}images/${coverImgName}`;
 
         await updateUser(
           user._id,

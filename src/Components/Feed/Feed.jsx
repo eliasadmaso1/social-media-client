@@ -4,6 +4,7 @@ import Share from "../Share/Share";
 import "./Feed.css";
 import axios from "axios";
 import { AuthContext } from "../Context/Auth-context";
+import {server_url} from '../../utils';
 
 function Feed({ username,margin }) {
   const { user } = useContext(AuthContext);
@@ -13,8 +14,8 @@ function Feed({ username,margin }) {
   useEffect(() => {
     const fetchPosts = async () => {
       const res = username
-        ? await axios.get(`http://localhost:8800/posts/profile/${username}`)
-        : await axios.get(`http://localhost:8800/posts/feed/${user._id}`);
+        ? await axios.get(`${server_url}posts/profile/${username}`)
+        : await axios.get(`${server_url}posts/feed/${user._id}`);
 
       setPosts(
         res.data.sort((post1, post2) => {

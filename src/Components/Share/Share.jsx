@@ -7,6 +7,8 @@ import EmojiEmotionsIcon from "@mui/icons-material/EmojiEmotions";
 import { AuthContext } from "../Context/Auth-context";
 import axios from "axios";
 import CancelIcon from "@mui/icons-material/Cancel";
+import {server_url} from '../../utils';
+
 
 function Share() {
   const [file, setFile] = useState(null);
@@ -28,14 +30,14 @@ function Share() {
       data.append("name", fileName);
       newPost.img = fileName;
       try {
-        await axios.post(`http://localhost:8800/upload`, data);
+        await axios.post(`${server_url}upload`, data);
       } catch (error) {
         console.log(error);
       }
     }
 
     try {
-      await axios.post("http://localhost:8800/posts", newPost);
+      await axios.post(`${server_url}posts`, newPost);
       window.location.reload();
     } catch (error) {
       console.log(error);

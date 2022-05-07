@@ -8,6 +8,7 @@ import axios from "axios";
 import Rightbar from "../../Components/RightBar/RightBar";
 import { AuthContext } from "../../Components/Context/Auth-context";
 import { useParams } from "react-router";
+import {server_url} from '../../utils';
 
 function Profile() {
   const [user, setUser] = useState({});
@@ -16,7 +17,7 @@ function Profile() {
   useEffect(() => {
     const fetchUser = async () => {
       const res = await axios.get(
-        `http://localhost:8800/users?username=${username}`
+        `${server_url}users?username=${username}`
       );
       setUser(res.data);
       console.log(res.data);

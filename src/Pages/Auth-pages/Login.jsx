@@ -19,9 +19,7 @@ function Login() {
     );
   };
 
-  console.log("====================================");
-  console.log({ user });
-  console.log("====================================");
+
 
   return (
     <div className="body">

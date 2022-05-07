@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../Context/Auth-context";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
+import {server_url} from '../../utils';
+
 
 export default function Rightbar({ user }) {
   const { user: currentUser, dispatch } = useContext(AuthContext);
@@ -23,7 +25,7 @@ export default function Rightbar({ user }) {
     const getFriends = async () => {
       try {
         const friendsList = await axios.get(
-          `http://localhost:8800/users/friends/${user._id}`
+          `${server_url}users/friends/${user._id}`
         );
 
         setFriends(friendsList.data);
@@ -38,7 +40,7 @@ export default function Rightbar({ user }) {
     const getOnlineFriends = async () => {
       try {
         const onlineFriendsRes = await axios.get(
-          `http://localhost:8800/users/friends/${currentUser._id}`
+          `${server_url}users/friends/${currentUser._id}`
         );
         setOnlineFriends(onlineFriendsRes.data);
       } catch (error) {
@@ -51,12 +53,12 @@ export default function Rightbar({ user }) {
   const updateUserFollowings = async () => {
     try {
       if (followed) {
-        await axios.put(`http://localhost:8800/users/unfollow/${user._id}`, {
+        await axios.put(`${server_url}users/unfollow/${user._id}`, {
           userId: currentUser._id,
         });
         dispatch({ type: "UNFOLLOW", payload: user._id });
       } else {
-        await axios.put(`http://localhost:8800/users/follow/${user._id}`, {
+        await axios.put(`${server_url}users/follow/${user._id}`, {
           userId: currentUser._id,
         });
         dispatch({ type: "FOLLOW", payload: user._id });

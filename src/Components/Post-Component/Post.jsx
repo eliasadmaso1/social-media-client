@@ -7,6 +7,7 @@ import axios from 'axios';
 import {format} from 'timeago.js';
 import {Link} from 'react-router-dom';
 import { AuthContext } from "../Context/Auth-context";
+import {server_url} from '../../utils';
 
 
 function Post({ post }) {
@@ -20,7 +21,7 @@ function Post({ post }) {
 
   useEffect(()=>{
     const fetchUser = async()=>{
-      const res = await axios.get(`http://localhost:8800/users?userId=${post.userId}`);
+      const res = await axios.get(`${server_url}users?userId=${post.userId}`);
       setUser(res.data)
 
     }
@@ -39,7 +40,7 @@ function Post({ post }) {
 
     const likeHandler = async()=>{
       try{
-        await axios.put(`http://localhost:8800/posts/like/${post._id}`,{userId:currentUser._id})
+        await axios.put(`${server_url}posts/like/${post._id}`,{userId:currentUser._id})
 
       }
       catch(error){
@@ -70,7 +71,7 @@ function Post({ post }) {
         </div>
         <div className="postCenter">
           <span className="postText">{post.desc}</span>
-          <img src={`http://localhost:8800/images/${post.img}`} className="postImage" />
+          <img src={`${server_url}${post.img}`} className="postImage" />
         </div>
         <div className="postBottom">
           <div className="postBottomLeft">

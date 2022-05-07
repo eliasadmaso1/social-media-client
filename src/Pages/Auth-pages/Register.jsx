@@ -3,6 +3,7 @@ import "./Auth.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import {Link} from 'react-router-dom';
+import {server_url} from '../../utils';
 
 function Register() {
   const username = useRef();
@@ -21,7 +22,7 @@ function Register() {
     };
 
     try {
-      await axios.post("http://localhost:8800/auth/register", user);
+      await axios.post(`${server_url}auth/register`, user);
       navigate("/login");
     } catch (err) {
       console.log(err);
