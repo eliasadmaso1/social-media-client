@@ -56,7 +56,7 @@ function Post({ post }) {
         <div className="postTop">
           <div className="postTopLeft">
            <Link to={`profile/${user.username}`}> <img
-              src={user.profilePicture ? user.profilePicture : "https://www.omyoga.co.il/wp-content/themes/hello-elementor/img/no-avatar.png"}
+              src={user.profilePicture ? user.profilePicture : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"}
               className="postProfileImage"
             />
             </Link>
@@ -71,7 +71,7 @@ function Post({ post }) {
         </div>
         <div className="postCenter">
           <span className="postText">{post.desc}</span>
-          <img src={`${server_url}${post.img}`} className="postImage" />
+          <img src={`${server_url}images/${post.img}`} className="postImage" />
         </div>
         <div className="postBottom">
           <div className="postBottomLeft">

@@ -22,7 +22,7 @@ function Register() {
     };
 
     try {
-      await axios.post(`${server_url}auth/register`, user);
+      await axios.post(`http://localhost:6000/auth/register`, user);
       navigate("/login");
     } catch (err) {
       console.log(err);
